@@ -11,8 +11,8 @@ spec:
   source:
     directory:
       recurse: true
-    path: gitops/config
-    repoURL: https://github.com/wpernath/quarkus-simple.git
+    path: config/overlays/stage
+    repoURL: https://github.com/wpernath/quarkus-simple-config.git
     targetRevision: HEAD
   syncPolicy:
     automated:
