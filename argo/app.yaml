@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: app-simple-quarkus
+  namespace: openshift-gitops
+spec:
+  destination:
+    namespace: quarkus-simple
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    directory:
+      recurse: true
+    path: gitops/config
+    repoURL: https://github.com/wpernath/quarkus-simple.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
