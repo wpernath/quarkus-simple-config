@@ -13,7 +13,7 @@ replicas:
 # replace the image tag of the container with stage
 images:
   - name: quay.io/wpernath/simple-quarkus
-    newTag: 1.1.0
+    newTag: 1.2.0
 
 # apply some patches
 patches:
@@ -23,7 +23,15 @@ patches:
       version: v1
       kind: Deployment
       name: simple
-      
+
+  # change the host name of the generated route
+  - patch: |-
+      - op: replace
+        path: /spec/host
+        value: simple-stage-art-stage.apps-crc.testing
+    target:
+      kind: Route
+
 # this patch needs to be done, because kustomize does not change 
 # the route target service name
   - patch: |-
