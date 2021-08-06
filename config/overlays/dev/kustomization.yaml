@@ -7,6 +7,9 @@ commonLabels:
 images:
 - name: quay.io/wpernath/simple-quarkus
   newTag: latest
+- digest: sha256:a70384d14301b7edc28119d5addf667505bca30f99feade770c15a2b0616dfb3
+  name: quay.io/wpernath/simple-quarkus:latest
+  newName: quay.io./wpernath/simple-quarkus-wow
 
 # apply a patch to replace the Host of the Route
 #- patch: |-
