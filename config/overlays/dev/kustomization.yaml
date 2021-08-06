@@ -5,6 +5,9 @@ commonLabels:
 
 # replace the image tag of the container with latest
 images:
+- digest: sha256:3c6f5ef5d6ab3e07bace7fd8568b840ac4e616855408fbcb64726899bb794c76
+  name: quay.io/wpernath/quarkus-simple
+  newName: quay.io/wpernath/quarkus-simple-wow
 - digest: sha256:4aa9f7090950f01742ff2ae3dc3ce2f4cd45a6dc07d3c168d1ecde91914b7d46
   name: quay.io/wpernath/simple-quarkus:latest
   newName: quay.io/wpernath/quarkus-simple-wow
