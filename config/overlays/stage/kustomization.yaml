@@ -1,45 +1,50 @@
-namePrefix: stage-  
+namePrefix: stage-
 commonLabels:
   variant: stage
 
-bases:
-- ../../base
 
 # in stage we have 2 replicas
 replicas:
-- name: simple
-  count: 2
+- count: 2
+  name: simple
 
 
 # apply some patches
-patches:
   # apply health checks to deployment
-  - path: apply-health-checks.yaml
-    target:
-      version: v1
-      kind: Deployment
-      name: simple
 
   # change the host name of the generated route
-  - patch: |-
-      - op: replace
-        path: /spec/host
-        value: simple-stage-art-stage.apps-crc.testing
-    target:
-      kind: Route
 
 # this patch needs to be done, because kustomize does not change 
 # the route target service name
-  - patch: |-
-      - op: replace
-        path: /spec/to/name
-        value: stage-simple
-    target:
-      kind: Route
+patches:
+- path: apply-health-checks.yaml
+  target:
+    kind: Deployment
+    name: simple
+    version: v1
+- patch: |-
+    - op: replace
+      path: /spec/host
+      value: simple-stage-art-stage.apps-crc.testing
+  target:
+    kind: Route
+- patch: |-
+    - op: replace
+      path: /spec/to/name
+      value: stage-simple
+  target:
+    kind: Route
 
 # change env parameter in config-map 
 # we could also simply generate the config-map from a source
 # or we could use one of the patches above for this
 patchesStrategicMerge:
-  - change-env-value.yaml
-
+- change-env-value.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- ../../base
+images:
+- digest: sha256:9c3945ba6bb32e3d73dd20ab0a9ceca9cf57c77e1a0c5b6e7e066bf9255f505d
+  name: quay.io/wpernath/simple-quarkus:latest
+  newName: quay.io/wpernath/quarkus-simple-wow
