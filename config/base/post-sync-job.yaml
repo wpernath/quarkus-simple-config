@@ -3,7 +3,7 @@ kind: Job
 metadata:
   generatedName: my-finalizer-
   annotations:
-    argocd.argoproj.io/hook: PostSync
+    argocd.argoproj.io/hook: PreSync
 spec:
   ttlSecondsAfterFinished: 100
   template:
