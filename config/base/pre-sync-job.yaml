@@ -1,25 +1,26 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  generateName: post-sync-run
-  name: my-final-run
+  generateName: pre-sync-run
+  name: my-start
   annotations:
-    argocd.argoproj.io/hook: PostSync
+    argocd.argoproj.io/hook: PreSync
 spec:
   ttlSecondsAfterFinished: 100
   template:
     spec:
       restartPolicy: Never
       containers:
-        - name: post-install-job
+        - name: pre-install-job
           image: "registry.access.redhat.com/ubi8/ubi-minimal:latest"              
           command: 
           - /bin/sh
           - -c 
           - |
-            echo "WELCOME TO the post installation hook for ArgoCD "
+            echo "WELCOME TO the pre installation hook for ArgoCD "
             echo "-------------------------------------------------"
-            echo "Here we could start integration tests or health checks"
+            echo "Here we could now do initialization work."
+            echo "Like filling our DB with some data or what's so ever"
             echo "..."
 
             sleep 10
