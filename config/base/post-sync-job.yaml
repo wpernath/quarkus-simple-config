@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  generatedName: my-finalizer-
+  generateName: my-finalizer-
   name: my-finalizer-
   annotations:
     argocd.argoproj.io/hook: PreSync
