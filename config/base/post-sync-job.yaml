@@ -2,12 +2,14 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   generatedName: my-finalizer-
+  name: my-finalizer-
   annotations:
     argocd.argoproj.io/hook: PreSync
 spec:
   ttlSecondsAfterFinished: 100
   template:
     spec:
+      restartPolicy: Never
       containers:
         - name: post-install-job
           image: "registry.access.redhat.com/ubi8/ubi-minimal:latest"              
