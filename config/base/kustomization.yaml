@@ -6,8 +6,12 @@ commonLabels:
   org: wanja.org
 
 resources:
+- argo-binding.yaml
 - config-map.yaml
 - deployment.yaml
 - service.yaml
 - route.yaml
+- post-sync-job.yaml
+
+
 
