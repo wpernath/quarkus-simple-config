@@ -44,3 +44,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
 - ../../base
+images:
+- digest: sha256:249e71a6840e8ecfd2544c4d41ba8aa4eeea419782c4270ded6b699082c7241e
+  name: quay.io/wpernath/simple-quarkus:latest
+  newName: quay.io/wpernath/quarkus-simple-wow:1.2.7
