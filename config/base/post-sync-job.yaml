@@ -22,4 +22,4 @@ spec:
             echo "Here we could start integration tests or health checks"
             echo "..."
 
-            sleep 10
+            #sleep 10

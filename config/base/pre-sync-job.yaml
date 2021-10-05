@@ -23,4 +23,4 @@ spec:
             echo "Like filling our DB with some data or what's so ever"
             echo "..."
 
-            sleep 10
+            #sleep 10
