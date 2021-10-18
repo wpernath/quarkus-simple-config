@@ -25,6 +25,6 @@ kind: Kustomization
 resources:
 - ../../base
 images:
-- digest: sha256:3010150bf8cbb2fe359ba1ab1d691ea7b29bdd71a7a6a3aa37e33c621fcd9f56
+- digest: sha256:38ef335ebddacdd63321791f817d31f2a2bf385fe83d8d24b2ada06d2281ac54
   name: quay.io/wpernath/simple-quarkus:latest
   newName: quay.io/wpernath/quarkus-simple-wow
